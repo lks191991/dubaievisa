@@ -38,6 +38,7 @@ use App\Http\Controllers\VariantPriceController;
 use App\Http\Controllers\ActivityVariantController;
 use App\Http\Controllers\VariantCanellationController;
 use App\Http\Controllers\APITourDataController;
+use App\Http\Controllers\VisaMasterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,7 +96,7 @@ Route::group(['middleware' => 'disable_back_btn'], function () {
         Route::get('change-password', [AuthController::class, 'changepassword'])->name('change-password');
         Route::post('profile/save/{id?}', [AuthController::class, 'saveProfile'])->name('profile.save');
 		Route::get('currency-change/{user_currency}', [AgentsController::class, 'CurrencyChange'])->name('currency.change');
-		
+		Route::resource('visa-masters', VisaMasterController::class);
         Route::resource('pages', PagesController::class);
 		Route::resource('tags', TagsController::class);
 		Route::post('tag/delete-image/{id?}', [TagsController::class, 'deleteImage'])->name('tag.delete.image');

@@ -45,18 +45,15 @@
                     <span class="text-danger">{{ $errors->first('code') }}</span>
                 @endif
               </div>
-			  <div class="form-group col-md-4">
-                <label for="inputName">Logo: <span class="red">*</span></label>
-                <input type="file" id="logo" name="logo"  class="form-control"   />
-                @if ($errors->has('logo'))
-                    <span class="text-danger">{{ $errors->first('logo') }}</span>
-                @endif
+			 
+			  
+			   <div class="form-group col-md-6">
+                <label for="inputName">OTB Required: <span class="red">*</span></label>
+                <select name="OTB_required" id="OTB_required" class="form-control">
+                    <option value="1" @if($record->OTB_required ==1) {{'selected="selected"'}} @endif>Yes</option>
+					          <option value="0" @if($record->OTB_required ==0) {{'selected="selected"'}} @endif >No</option>
+                 </select>
               </div>
-			   @if($record->logo)
-              <div class="form-group col-md-2">
-                <img src="{{ url('/uploads/airlines/thumb/'.$record->logo) }}" width="50"  alt="airlines-logo" />
-              </div>
-              @endif
               <div class="form-group col-md-6">
                 <label for="inputName">Status: <span class="red">*</span></label>
                 <select name="status" id="status" class="form-control">
@@ -64,6 +61,19 @@
 					          <option value="0" @if($record->status ==0) {{'selected="selected"'}} @endif >Inactive</option>
                  </select>
               </div>
+			  
+			   <div class="form-group col-md-4">
+                <label for="inputName">Logo: <span class="red">*</span></label>
+                <input type="file" id="logo" name="logo"  class="form-control"   />
+                @if ($errors->has('logo'))
+                    <span class="text-danger">{{ $errors->first('logo') }}</span>
+                @endif
+              </div>
+			   @if($record->logo)
+              <div class="form-group col-md-2 mt-4">
+                <img src="{{ url('/uploads/airlines/thumb/'.$record->logo) }}" width="50"  alt="airlines-logo" />
+              </div>
+              @endif
             </div>
             <!-- /.card-body -->
           </div>

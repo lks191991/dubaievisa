@@ -54,6 +54,13 @@
               </div>
 			  
 			   <div class="form-group col-md-6">
+                <label for="inputName">OTB Required: <span class="red">*</span></label>
+                <select name="OTB_required" id="OTB_required" class="form-control">
+                    <option value="1" @if(old('OTB_required') ==1) {{'selected="selected"'}} @endif>Yes</option>
+					          <option value="0" @if(old('OTB_required') ==0) {{'selected="selected"'}} @endif >No</option>
+                 </select>
+              </div>
+			  <div class="form-group col-md-6">
                 <label for="inputName">Status: <span class="red">*</span></label>
                 <select name="status" id="status" class="form-control">
                     <option value="1" @if(old('status') ==1) {{'selected="selected"'}} @endif>Active</option>

@@ -1026,6 +1026,22 @@ $controller = preg_replace('/.*\\\/', '', $controller);
 		  
 		  @endrole 
 		  @endif
+      @php
+      $class=''; $active='';
+      if($controller == 'VisaMasterController' and in_array($action,array('index','create','edit','show'))){
+        $class = 'menu-open';
+        $active = 'active';
+      }
+ 
+  
+      @endphp 
+      <li class="nav-item ">
+        <a href="{{ route('visa-masters.index') }}" class="nav-link {{$active}}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Visa Master</p>
+          </a>
+  
+        </li>
 		   <li class="nav-item">
             <a href="{{route('logout')}}" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>

@@ -69,6 +69,7 @@ class AirlinesController extends Controller
         $record->name = $request->input('name');
 		$record->code = $request->input('code');
 		$record->status = $request->input('status');
+        $record->OTB_required = $request->input('OTB_required');
 		$record->created_by = Auth::user()->id;
 		 /** Below code for save image **/
 		$destinationPath = public_path('/uploads/airlines/');
@@ -171,6 +172,7 @@ class AirlinesController extends Controller
 		$record->code = $request->input('code');
         $record->name = $request->input('name');
         $record->status = $request->input('status');
+        $record->OTB_required = $request->input('OTB_required');
 		$record->updated_by = Auth::user()->id;
         $record->save();
         return redirect('airlines')->with('success','Airline Updated.');
